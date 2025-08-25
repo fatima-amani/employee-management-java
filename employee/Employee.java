@@ -20,7 +20,6 @@ public abstract class Employee implements Salary {
     }
 
     public abstract String getRole();
-    public abstract void performWork();
 
     
     public void showDetails() {
