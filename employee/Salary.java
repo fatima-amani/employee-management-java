@@ -5,5 +5,5 @@ public interface Salary {
 
     public Float getSalary();
     public void setSalary(Float newSalary);
-    public void incrementSalary(float incrementRate);
+    public void incrementSalary(Float incrementRate);
 }
