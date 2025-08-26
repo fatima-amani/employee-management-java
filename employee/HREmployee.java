@@ -4,24 +4,23 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class HREmployee extends Employee {
-    private ArrayList<String> hrmsPlatforms;
+    private final ArrayList<String> hrmsPlatforms;
     private String specialization;
 
-    public HREmployee(String id, String name, Date dateOfJoining, int dailyHours) {
-        super(id, name, dateOfJoining, dailyHours);
-        this.hrmsPlatforms = new ArrayList<>();
-        this.specialization = "General HR";
-    }
-
-    public HREmployee(String id, String name, Date dateOfJoining, int dailyHours, String specialization) {
-        super(id, name, dateOfJoining, dailyHours);
+    public HREmployee(String name, Date dateOfJoining, int dailyHours, String specialization) {
+        super(name, dateOfJoining, dailyHours);
         this.hrmsPlatforms = new ArrayList<>();
         this.specialization = specialization;
     }
+    public void showDetails() {
+        super.showDetails();
+        System.out.println("hrms Platforms: " + hrmsPlatforms);
+        System.out.println("Specialization: " + specialization);
+        System.out.println("\n");
+    }
 
-    @Override
     public String getRole() {
-        return "HR Specialist - " + specialization;
+        return "Role: " + specialization;
     }
 
 

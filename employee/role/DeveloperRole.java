@@ -3,7 +3,7 @@ package employee.role;
 public enum DeveloperRole {
     FRONTEND("Frontend Developer"),
     BACKEND("Backend Developer"),
-    FULLSTACK("Full Stack Developer"),
+    FULLSTACK("Full Stack Developer");
 
     private final String role;
 

@@ -5,34 +5,31 @@ import employee.role.DeveloperRole;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class DeveloperEmployee extends Employee {
-    private ArrayList<String> technologies;
+public class DeveloperEmployee extends Employee implements Manager{
+    private final ArrayList<String> technologies;
     private DeveloperRole role;
     private ManagerEmployee manager;
 
-    public DeveloperEmployee(String id, String name, Date dateOfJoining, int dailyHours) {
-        super(id, name, dateOfJoining, dailyHours);
-        this.technologies = new ArrayList<>();
-    }
-
-    public DeveloperEmployee(String id, String name, Date dateOfJoining, int dailyHours, DeveloperRole role) {
-        super(id, name, dateOfJoining, dailyHours);
+    public DeveloperEmployee(String name, Date dateOfJoining, int dailyHours, DeveloperRole role) {
+        super(name, dateOfJoining, dailyHours);
         this.technologies = new ArrayList<>();
         this.role = role;
     }
 
-    @Override
-    public String getRole() {
-        return "Developer Role:- " + role.getRole();
+    public void showDetails() {
+        super.showDetails();
+        System.out.println("Technologies: " + technologies);
+        System.out.println("Role: " + role);
+        System.out.println("Manager: " + manager.getName());
+        System.out.println("\n");
     }
 
+    public String getRole() {
+        return role.getRole();
+    }
     
     public void setRole(DeveloperRole role) {
         this.role = role;
-    }
-
-    public DeveloperRole getDeveloperRole() {
-        return role;
     }
 
     public void addTechnology(String technology) {

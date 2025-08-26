@@ -5,34 +5,31 @@ import employee.role.DevOpsRole;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class DevOpsEmployee extends Employee {
-    private ArrayList<String> cloudPlatforms;
+public class DevOpsEmployee extends Employee implements Manager{
+    private final ArrayList<String> cloudPlatforms;
     private DevOpsRole role;
     private ManagerEmployee manager;
 
-    public DevOpsEmployee(String id, String name, Date dateOfJoining, int dailyHours) {
-        super(id, name, dateOfJoining, dailyHours);
-        this.cloudPlatforms = new ArrayList<>();
-        this.role = DevOpsRole.JUNIOR_DEVOPS_ENGINEER;
-    }
-
-    public DevOpsEmployee(String id, String name, Date dateOfJoining, int dailyHours, DevOpsRole role) {
-        super(id, name, dateOfJoining, dailyHours);
+   public DevOpsEmployee(String name, Date dateOfJoining, int dailyHours, DevOpsRole role) {
+        super(name, dateOfJoining, dailyHours);
         this.cloudPlatforms = new ArrayList<>();
         this.role = role;
     }
 
-    @Override
+    public void showDetails() {
+        super.showDetails();
+        System.out.println("Cloud Platforms: " + cloudPlatforms);
+        System.out.println("Role: " + role);
+        System.out.println("Manager: " + manager.getName());
+        System.out.println("\n");
+    }
+
     public String getRole() {
-        return "DevOps Engineer - " + role.getRole();
+        return this.role.getRole();
     }
 
     public void setRole(DevOpsRole role) {
         this.role = role;
-    }
-
-    public DevOpsRole getDevOpsRole() {
-        return role;
     }
 
     public void addCloudPlatform(String cloudPlatform) {
@@ -46,7 +43,7 @@ public class DevOpsEmployee extends Employee {
     }
 
     public ArrayList<String> getCloudPlatforms() {
-        return new ArrayList<>(cloudPlatforms); // Return a copy for encapsulation
+        return new ArrayList<>(cloudPlatforms);
     }
 
     public void setManager(ManagerEmployee manager) {

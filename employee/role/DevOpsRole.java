@@ -10,7 +10,7 @@ public enum DevOpsRole {
         this.role = role;
     }
 
-    public String getrole() {
+    public String getRole() {
         return role;
     }
 }

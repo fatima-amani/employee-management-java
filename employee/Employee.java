@@ -1,6 +1,7 @@
 package employee;
 
 import java.util.Date;
+import java.util.UUID;
 
 public abstract class Employee implements Salary {
     protected String id;
@@ -10,8 +11,8 @@ public abstract class Employee implements Salary {
     protected Float yearsOfExperience;
     protected Float salary;
 
-    public Employee(String id, String name, Date dateOfJoining, int dailyHours) {
-        this.id = id;
+    public Employee(String name, Date dateOfJoining, int dailyHours) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.dateOfJoining = dateOfJoining;
         this.dailyHours = dailyHours;
@@ -19,17 +20,13 @@ public abstract class Employee implements Salary {
         this.yearsOfExperience = 0.0f;
     }
 
-    public abstract String getRole();
-
-    
     public void showDetails() {
         System.out.println("Employee ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Date of Joining: " + dateOfJoining);
         System.out.println("Daily Hours: " + dailyHours);
         System.out.println("Years of Experience: " + yearsOfExperience);
-        System.out.println("Salary: $" + salary);
-        System.out.println("Role: " + getRole());
+        System.out.println("Salary: INR" + salary);
     }
 
     public void updateExperience(float years) {
@@ -70,4 +67,12 @@ public abstract class Employee implements Salary {
     public Date getDateOfJoining() { return dateOfJoining; }
     public Integer getDailyHours() { return dailyHours; }
     public Float getYearsOfExperience() { return yearsOfExperience; }
+
+    public void setDailyHours(Integer dailyHours) {
+        this.dailyHours = dailyHours;
+    }
+
+    public void setYearsOfExperience(Float yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
+    }
 }
